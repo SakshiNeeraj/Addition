@@ -1,1 +1,1 @@
-Enter two numbers: The sum is: 8
+8
