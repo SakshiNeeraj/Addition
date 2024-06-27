@@ -22,8 +22,7 @@ jobs:
 
     - name: Run tests
       run: |
-        cp input.txt build/input.txt
+        cp ../input.txt build/input.txt
         cd build
-        OUTPUT=$(./Addition)
-        echo "$OUTPUT" | tee output.txt
+        ./Addition < input.txt > output.txt
         diff output.txt ../expected_output.txt
