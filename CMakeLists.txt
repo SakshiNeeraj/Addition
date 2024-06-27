@@ -1,4 +1,7 @@
+# CMakeLists.txt
 cmake_minimum_required(VERSION 3.10)
 project(Addition)
 
-add_executable(addition 1.cpp)
+set(CMAKE_CXX_STANDARD 11)
+
+add_executable(Addition 1.cpp)
