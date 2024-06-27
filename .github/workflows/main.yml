@@ -22,7 +22,7 @@ jobs:
 
     - name: Run tests
       run: |
-        cp ../input.txt build/input.txt
         cd build
-        ./Addition < input.txt > output.txt
-        diff output.txt ../expected_output.txt
+        echo "3 5" | ./Addition > output.txt
+        echo "The sum is: 8" > expected_output.txt
+        diff output.txt expected_output.txt
