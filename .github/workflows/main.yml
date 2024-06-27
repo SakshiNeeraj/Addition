@@ -1,4 +1,3 @@
-# .github/workflows/main.yml
 name: C++ CI
 
 on: [push, pull_request]
@@ -20,9 +19,13 @@ jobs:
     - name: Build
       run: cmake --build build
 
+    - name: List build directory contents (debugging)
+      run: ls -la build
+
     - name: Run tests
       run: |
         cd build
         echo "3 5" | ./Addition > output.txt
-        echo "The sum is: 8" > expected_output.txt
+        cat output.txt # Add this line to see the actual output in the workflow logs
+        echo "Enter two numbers: The sum is: 8" > expected_output.txt # Update this line if you modified the `1.cpp` file
         diff output.txt expected_output.txt
