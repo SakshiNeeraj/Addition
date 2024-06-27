@@ -1,3 +1,4 @@
+# .github/workflows/main.yml
 name: C++ CI
 
 on: [push, pull_request]
@@ -25,7 +26,8 @@ jobs:
     - name: Run tests
       run: |
         cd build
-        echo "3 5" | ./Addition > output.txt
-        cat output.txt # Add this line to see the actual output in the workflow logs
-        echo "Enter two numbers: The sum is: 8" > expected_output.txt # Update this line if you modified the `1.cpp` file
-        diff output.txt expected_output.txt
+        INPUT=$(<../input.txt)  # Read input from input.txt
+        echo "$INPUT" | ./Addition > output.txt  # Pipe input to Addition executable and redirect output to output.txt
+        cat output.txt  # Print contents of output.txt for debugging
+        echo "8" > expected_output.txt  # Create expected_output.txt with the expected result
+        diff output.txt expected_output.txt  # Compare output.txt with expected_output.txt
